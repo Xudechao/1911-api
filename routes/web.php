@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test/hash1','TestController@hash1');
+Route::get('/test/hash2','TestController@hash2');
+
 Route::post('/user/reg','User\IndexController@reg');     //注册
 Route::post('/user/login','User\IndexController@login');      //登录
 Route::get('/user/center','User\IndexController@center');      //个人中心

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\UserModel;
 use App\Model\TokenModel;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Redis;
 
 class IndexController extends Controller
 {
@@ -142,5 +143,6 @@ class IndexController extends Controller
         return $response;
 
     }
+
 
 }

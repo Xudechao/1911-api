@@ -3,37 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Redis;
+use DB;
 
 class TestController extends Controller
 {
-    public function test1()
+    public function hash1()
     {
-        $url = 'http://www.1911.com/user/info';
-        //$url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET'
-        $response = file_get_contents($url);
-        var_dump($response);
+//        phpinfo();die;
+
+        $data = [
+            'name' => 'zhangsan',
+            'email' => 'zhangsan@qq.com',
+            'age' => 22
+        ];
+
+        $key = 'user_info1';
+        Redis::hmset($key,$data);
     }
 
-    public function test2()
+    public function hash2()
     {
-        //echo 'test2';
-        echo Str::random(30);
+        $key = 'user_info1';
+        $redis = Redis::hgetall($key);
+        print_r($redis);
     }
 
-    /**
-     * 接口注册
-     */
-    public function reg(Request $request)
-    {
-        return view('login.reg');
-    }
-
-    /**
-     * 接口登录
-     */
-    public function login(Request $request)
-    {
-
-    }
 }
