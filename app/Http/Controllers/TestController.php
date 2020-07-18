@@ -10,8 +10,6 @@ class TestController extends Controller
 {
     public function hash1()
     {
-//        phpinfo();die;
-
         $data = [
             'name' => 'zhangsan',
             'email' => 'zhangsan@qq.com',
