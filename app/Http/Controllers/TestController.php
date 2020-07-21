@@ -77,4 +77,9 @@ class TestController extends Controller
         }
     }
 
+    public function test1()
+    {
+        echo __METHOD__;
+    }
+
 }
