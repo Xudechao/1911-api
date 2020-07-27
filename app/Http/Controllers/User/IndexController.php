@@ -144,5 +144,20 @@ class IndexController extends Controller
 
     }
 
+    public function logins(){
+        $token = request()->get('token');
+        $t = TokenModel::where(["token"=>$token])->first();
+        $user_info = UserModel::find($t->uid);
+        $response = [
+            "errno" => 0,
+            "msg" => "ok",
+            "data"=>[
+                "user_info"=> $user_info
+            ]
+        ];
+        return response()->json($response);
+
+    }
+
 
 }

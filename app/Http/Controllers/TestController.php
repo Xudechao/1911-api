@@ -82,4 +82,63 @@ class TestController extends Controller
         echo __METHOD__;
     }
 
+    public function token2()
+    {
+        $id = Request()->get("id");
+        $key = "token";
+        $count = Redis::incr(1);
+        Redis::zadd($key, $id, $count);
+        $counts = Redis::zcard($key);
+        echo $counts;
+    }
+
+    /**
+     * 解密
+     * @param Request $request
+     */
+    public function dec(Request $request)
+    {
+        $mehod = 'AES-256-CBC';
+        $keye = '1911www';
+        $lv = '1233211233211231';
+        $option = OPENSSL_RAW_DATA;
+
+        $enc = base64_decode($request->post('data'));
+        $dec = openssl_decrypt($enc,$mehod,$keye,$option,$lv);
+        echo "解密数据：".$dec;
+    }
+
+    public function dersa(){
+        $enc_data = $_POST["data"];
+        $blog_pub_key = file_get_contents(storage_path("keys/www_pub.key"));
+        openssl_public_decrypt($enc_data,$dec_data,$blog_pub_key);
+        ######################################################################
+        $data = "已收到";
+        $content = openssl_get_privatekey(file_get_contents(storage_path("keys/api_priv.key")));
+        $priv_key = openssl_get_privatekey($content);
+        openssl_private_encrypt($data,$enc_data,$priv_key);
+        echo $enc_data;
+    }
+
+    public function sign1(Request $request)
+    {
+        $key = '1911www';
+
+        // echo '<pre>';print_r($_GET);echo '</pre>';
+
+        //接收数据
+        $data = $request->get('data');
+        $sign = $request->get('sign');
+
+        //计算签名
+        $sing_s2 = md5($data . $key);
+        if($sing_s2 == $sign)
+        {
+            echo "验签成功";
+        }else{
+            echo "验签失败";
+        }
+
+    }
+
 }

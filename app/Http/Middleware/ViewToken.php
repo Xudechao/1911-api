@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class VerifyAccessToken
+class ViewToken
 {
     /**
      * Handle an incoming request.
@@ -15,13 +15,6 @@ class VerifyAccessToken
      */
     public function handle($request, Closure $next)
     {
-        if($request->get('token'))
-        {
-
-        }else{
-            die("你授权失败了");
-        }
-
         return $next($request);
     }
 }

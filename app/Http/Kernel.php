@@ -2,8 +2,11 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\TestAsToken;
+use App\Http\Middleware\UserToken;
 use App\Http\Middleware\VerifyAccessToken;
 use App\Http\Middleware\ViewCount;
+use App\Http\Middleware\ViewToken;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -65,7 +68,10 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'count' => ViewCount::class,        // 统计访问次数
-        'verfiy.token' => VerifyAccessToken::class,     //检查access token
+        'token' => \App\Http\Middleware\VerifAccessToken::class,
+        'cont' => TestAsToken::class,
+        'view' => ViewToken::class,
+        'user' => UserToken::class,
     ];
 
     /**

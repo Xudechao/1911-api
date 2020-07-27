@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TokenModel extends Model
 {
-    protected  $table='p_token';
+    protected  $table='p_tokens';
     protected $primaryKey='id';
 }
