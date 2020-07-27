@@ -22,6 +22,7 @@ Route::get('/info', function () {
 Route::get('/test/dec','TestController@dec');
 Route::post('/test/dersa','TestController@dersa');
 Route::get('/test/sign1','TestController@sign1');
+Route::get('/test1','TestController@test1');
 
 #**********************************************************
 Route::get('/test/hash1','TestController@hash1');
@@ -37,7 +38,7 @@ Route::get("/has","TestController@has");
 Route::get("/gethas","TestController@gethas");
 #*************************************************************
 Route::get('/goods','TestController@goods');    //商品 访问 次数
-Route::get('/test1','TestController@test1')->middleware('count');    //访问次数2
+//Route::get('/test1','TestController@test1')->middleware('count');    //访问次数2
 Route::get('/token2','TestController@token2');
 #*************************************************************
 Route::get('/a/test1','TestController@test1');

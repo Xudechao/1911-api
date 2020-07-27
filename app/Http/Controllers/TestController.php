@@ -79,7 +79,20 @@ class TestController extends Controller
 
     public function test1()
     {
-        echo __METHOD__;
+
+        if(isset($_SERVER['HTTP_TOKEN']))
+        {
+            //
+        }else{
+            echo "授权失败";
+            die;
+        }
+        $uid = $_SERVER['HTTP_UID'];
+        $token = $_SERVER['HTTP_TOKEN'];
+
+        echo 'uid:'.$uid;echo '<br>';
+        echo 'token:'.$token;echo '<br>';
+
     }
 
     public function token2()
@@ -120,6 +133,10 @@ class TestController extends Controller
         echo $enc_data;
     }
 
+    /**
+     * 签名测试1
+     * @param Request $request
+     */
     public function sign1(Request $request)
     {
         $key = '1911www';
