@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/info', function () {
    phpinfo();
 });
+//
 
 Route::any("/user/login","Index\LoginController@login");
 Route::any("/user/reg","Index\LoginController@reg");
