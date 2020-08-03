@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 
-
 use Illuminate\Http\Request;
 use App\Model\LoginModel;
 use App\Model\TokenModel;
@@ -11,6 +10,11 @@ use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
+    /**
+     * 登录
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function login(Request $request)
     {
         $name = $request->post("username");
@@ -54,11 +58,16 @@ class LoginController extends Controller
 
         }
         if ($response['error'] == 0) {
-            return redirect("http://www.1911.com/user/center");
+            return redirect("http://www.1911.com/user/index");
         }
 
     }
 
+    /**
+     * 注册
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|string[]
+     */
     public function reg(Request $request)
     {
         $username = $request->post("username");
@@ -131,4 +140,5 @@ class LoginController extends Controller
             }
         }
     }
+
 }

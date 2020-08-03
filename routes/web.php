@@ -22,8 +22,9 @@ Route::get('/info', function () {
 
 Route::any("/user/login","Index\LoginController@login");
 Route::any("/user/reg","Index\LoginController@reg");
-Route::get("/user/center","Index\LoginController@center")->middleware("token");  //个人中心
-#*********************************************************
+Route::post("/cha","Index\IndexController@cha");
+Route::any("/desc/{goods_id}","Index\IndexController@desc"); //详情页
+#*************************************************** ******
 Route::get('/test/dec','TestController@dec');
 Route::post('/test/dersa','TestController@dersa');
 Route::get('/test/sign1','TestController@sign1');
@@ -32,9 +33,8 @@ Route::get('/test1','TestController@test1');
 Route::get('/test/hash1','TestController@hash1');
 Route::get('/test/hash2','TestController@hash2')->middleware('cont');
 #***********************************************************
-Route::post('/user/reg','Index\LoginController@reg');
-Route::post('/user/login','Index\LoginController@login');
-
+//Route::post('/user/reg','Index\LoginController@reg');
+//Route::post('/user/login','Index\LoginController@login');
 #************************************************************
 Route::get("/has","TestController@has");
 Route::get("/gethas","TestController@gethas");
