@@ -8,7 +8,7 @@ class CarModel extends Model
 {
     protected $table = 'car';
 
-    protected  $primaryKey = 'sid';
+    protected  $primaryKey = 'cid';
 
     public $timestamps = false;
 }

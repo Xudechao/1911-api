@@ -22,8 +22,7 @@ Route::get('/info', function () {
 
 Route::any("/user/login","Index\LoginController@login");
 Route::any("/user/reg","Index\LoginController@reg");
-Route::post("/cha","Index\IndexController@cha");
-Route::any("/desc/{goods_id}","Index\IndexController@desc"); //详情页
+//Route::get("/user/goshop/{goods_id}","Index\CarController@goshop");
 #*************************************************** ******
 Route::get('/test/dec','TestController@dec');
 Route::post('/test/dersa','TestController@dersa');
