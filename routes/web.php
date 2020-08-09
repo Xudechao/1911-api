@@ -19,7 +19,11 @@ Route::get('/info', function () {
    phpinfo();
 });
 
+Route::post('/reg/reg','Index\TestController@reg'); //注册
+Route::post('/reg/login','Index\TestController@login'); //登录
+Route::post('/reg/goods','Index\TestController@goods'); //商品
 
+#************************************************************
 Route::any("/user/login","Index\LoginController@login");
 Route::any("/user/reg","Index\LoginController@reg");
 //Route::get("/user/goshop/{goods_id}","Index\CarController@goshop");

@@ -79,7 +79,6 @@ class TestController extends Controller
 
     public function test1()
     {
-
         if(isset($_SERVER['HTTP_TOKEN']))
         {
             //
@@ -106,7 +105,7 @@ class TestController extends Controller
     }
 
     /**
-     * 解密
+     * 对称加密解密
      * @param Request $request
      */
     public function dec(Request $request)
@@ -121,6 +120,9 @@ class TestController extends Controller
         echo "解密数据：".$dec;
     }
 
+    /**
+     *非对称加密解密
+     */
     public function dersa(){
         $enc_data = $_POST["data"];
         $blog_pub_key = file_get_contents(storage_path("keys/www_pub.key"));
