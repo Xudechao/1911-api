@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class LoginModel extends Model
 {
-    public $table = 'login';
+    public $table = 'app';
+    //public $table = 'login';
 
     protected  $primaryKey = 'id';
 

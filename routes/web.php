@@ -19,8 +19,14 @@ Route::get('/info', function () {
    phpinfo();
 });
 
-Route::any("index/goods","Index\RedisController@index");
+Route::any("/a","RedisController@a");
+Route::any("/b","RedisController@b");
+Route::any("/c","RedisController@c");
+Route::post("/d","RedisController@d");
+Route::post("/e","RedisController@e");
 
+#**********************************************************
+Route::any("index/goods","Index\RedisController@index"); //列表展示
 #**********************************************************
 Route::post('/reg/reg','Index\TestController@reg'); //注册
 Route::post('/reg/login','Index\TestController@login'); //登录

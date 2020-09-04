@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 use App\Model\GoodsModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class RedisController extends Controller
 {
     public function index(Request $request)
     {
-
         $name = $request->input('goods_name');
         $where = [];
         if($where){
